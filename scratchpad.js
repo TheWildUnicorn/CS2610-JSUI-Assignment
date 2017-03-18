@@ -1,21 +1,3 @@
-//set title
-document.title = 'Jaydon\'s Big Mathinessness';
-//create a primary div to hold all the Fib stuff
-var primFibDiv = document.createElement('div');
-primFibDiv.className = 'parentDiv';
-document.body.appendChild(primFibDiv);
-//create a primary div to hold all the Pell stuff
-var primPellDiv = document.createElement('div');
-primPellDiv.className = 'parentDiv';
-document.body.appendChild(primPellDiv);
-//create a primary div to hold all the Tri stuff
-var primTriDiv = document.createElement('div');
-primTriDiv.className = 'parentDiv';
-document.body.appendChild(primTriDiv);
-//run all three sequences
-fib(11, primFibDiv);
-pell(11, primPellDiv);
-trib(11, primTriDiv);
 //Let credit be given to Erik Falor whose work heavily influenced the following code
 function fib(n, node) {
   var tree = recursiveFib(n);
@@ -141,44 +123,41 @@ function recursiveTrib(n) {
   };
 }
 
-var style = document.createElement('style');
-style.textContent = '.parentDiv{' +
-'\tborder-style: solid;' +
-'\tborder-color: white;' +
-'\tborder-radius: 10px;' +
-'\tborder-width: 2px;' +
-'\tmargin: 10px;' +
-'\tpadding: 3px;' +
-'}' +
-'#fib{' +
-'\tbackground-color: #BDFFFD;' +
-'\twidth: 17000px;' +
-'}' +
-'#pell{' +
-'\tbackground-color: #7CFFC4;' +
-'\twidth: 17500px;' +
-'}' +
-'#trib{' +
-'\tbackground-color: #9FFFF5;' +
-'\twidth: 39000px;' +
-'}' +
-'' +
-'.childDiv{' +
-'\tdisplay: inline-block;' +
-'\tbackground-color: rgba(94,105,115,0.09);' +
-'\tborder-radius: 5px;' +
-'\tmargin: 10px;' +
-'\tpadding: 3px;' +
-'\ttext-align: center;' +
-'}' +
-'.leftChild{' +
-'\tfloat: left;' +
-'}' +
-'.rightChild{' +
-'\tfloat: right;' +
-'}' +
-'/*This presents problems with Webkit browsers. There is no \'float: center;\' The div gets wrapped to the next line.*/' +
-'.centerChild{' +
-'\tfloat: none;' +
-'}';
-document.querySelector('body').appendChild(style);
+function fibButton(me) {
+  var form = me.parentNode;
+  var slider = form.querySelector('input');
+  var value = slider.value;
+  fib(value, form.parentNode);
+}
+
+function fibSlider(me) {
+  var form = me.parentNode;
+  var button = form.querySelector('button');
+  button.textContent = 'Fib(' + me.value + ')';
+}
+
+function pellButton(me) {
+  var form = me.parentNode;
+  var slider = form.querySelector('input');
+  var value = slider.value;
+  pell(value, form.parentNode);
+}
+
+function pellSlider(me) {
+  var form = me.parentNode;
+  var button = form.querySelector('button');
+  button.textContent = 'Pell(' + me.value + ')';
+}
+
+function tribButton(me) {
+  var form = me.parentNode;
+  var slider = form.querySelector('input');
+  var value = slider.value;
+  trib(value, form.parentNode);
+}
+
+function tribSlider(me) {
+  var form = me.parentNode;
+  var button = form.querySelector('button');
+  button.textContent = 'Trib(' + me.value + ')';
+}
