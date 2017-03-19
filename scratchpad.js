@@ -13,6 +13,7 @@ function recursiveFib(n) {
   var div = document.createElement('div');
   div.setAttribute('class', 'childDiv');
   // leaf nodes aka. base case
+  n = parseInt(n);
   if (n < 2) {
     if (n === 0) {
       value = 0;
@@ -56,6 +57,8 @@ function recursivePell(n) {
   var value;
   var pellDiv = document.createElement('div');
   pellDiv.setAttribute('class', 'childDiv');
+  // leaf nodes aka. base case
+  n = parseInt(n);
   if (n < 2) {
     if (n === 0) {
       value = 0;
@@ -100,6 +103,7 @@ function recursiveTrib(n) {
   var div = document.createElement('div');
   div.setAttribute('class', 'childDiv');
   // leaf nodes aka. base case
+  n = parseInt(n);
   if (n < 3) {
     if (n === 0) {
       value = 0;
