@@ -1,5 +1,9 @@
 //Let credit be given to Erik Falor whose work heavily influenced the following code
 function fib(n, node) {
+  var prevTree = node.querySelector('div.childDiv');
+  if(prevTree){
+    node.removeChild(prevTree);
+  }
   var tree = recursiveFib(n);
   node.appendChild(tree.html);
   node.setAttribute('id', 'fib');
@@ -40,6 +44,10 @@ function recursiveFib(n) {
   };
 }
 function pell(n, node) {
+  var prevTree = node.querySelector('div.childDiv');
+  if(prevTree){
+    node.removeChild(prevTree);
+  }
   var tree = recursivePell(n);
   node.appendChild(tree.html);
   node.setAttribute('id', 'pell');
@@ -79,6 +87,10 @@ function recursivePell(n) {
   };
 }
 function trib(n, node) {
+  var prevTree = node.querySelector('div.childDiv');
+  if(prevTree){
+    node.removeChild(prevTree);
+  }
   var tree = recursiveTrib(n);
   node.appendChild(tree.html);
   node.setAttribute('id', 'trib');
