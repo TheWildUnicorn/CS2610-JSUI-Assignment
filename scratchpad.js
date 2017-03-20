@@ -139,41 +139,17 @@ function recursiveTrib(n) {
   };
 }
 
-function fibButton(me) {
+function sliderAction(me){
+  var form = me.parentNode;
+  var button = form.querySelector('button');
+  var parentID = form.parentNode.id;
+  button.textContent = parentID.toLocaleUpperCase()[0] + parentID.slice(1) + '(' + me.value + ')';
+}
+
+function buttonAction(me){
   var form = me.parentNode;
   var slider = form.querySelector('input');
   var value = slider.value;
-  fib(value, form.parentNode);
-}
-
-function fibSlider(me) {
-  var form = me.parentNode;
-  var button = form.querySelector('button');
-  button.textContent = 'Fib(' + me.value + ')';
-}
-
-function pellButton(me) {
-  var form = me.parentNode;
-  var slider = form.querySelector('input');
-  var value = slider.value;
-  pell(value, form.parentNode);
-}
-
-function pellSlider(me) {
-  var form = me.parentNode;
-  var button = form.querySelector('button');
-  button.textContent = 'Pell(' + me.value + ')';
-}
-
-function tribButton(me) {
-  var form = me.parentNode;
-  var slider = form.querySelector('input');
-  var value = slider.value;
-  trib(value, form.parentNode);
-}
-
-function tribSlider(me) {
-  var form = me.parentNode;
-  var button = form.querySelector('button');
-  button.textContent = 'Trib(' + me.value + ')';
+  var parentID = form.parentNode.id;
+  window[parentID](value, form.parentNode);
 }
